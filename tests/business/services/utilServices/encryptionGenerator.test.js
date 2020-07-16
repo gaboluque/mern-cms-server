@@ -1,4 +1,3 @@
-import userRegistrator from '../../../../src/business/services/authServices/userRegistrator';
 import encryptionGenerator from '../../../../src/business/services/utilServices/encryptionGenerator';
 
 describe('encryptionGenerator service', () => {

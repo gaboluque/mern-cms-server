@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 import subscriptionSchema from './subscriptionSchema';
+import { FREE_ROLE } from '../../../utils/userUtils/subscriptionUtils';
 
 const userSchema = new mongoose.Schema(
   {
@@ -16,11 +17,6 @@ const userSchema = new mongoose.Schema(
       required: 'La contraseña del usuario es requerida',
       minlength: [7, 'La contraseña debe tener al menos 7 caracteres'],
       trim: true,
-      validate(value) {
-        if (value.toLowerCase().includes('password')) {
-          throw new Error('Password cannot contain "password"');
-        }
-      },
     },
     name: {
       type: String,
@@ -69,6 +65,9 @@ const userSchema = new mongoose.Schema(
     subscription: {
       type: subscriptionSchema,
       required: 'Se debe especificar la suscripción del usuario',
+      default: {
+        role: FREE_ROLE,
+      },
     },
   },
   {

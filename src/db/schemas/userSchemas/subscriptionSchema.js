@@ -16,11 +16,9 @@ const subscriptionSchema = new mongoose.Schema(
     },
     paymentDate: {
       type: Date,
-      required: 'La fecha de pago de la suscripción es requerida',
     },
     expirationDate: {
       type: Date,
-      required: 'La fecha de expiración de la suscripción es requerida',
     },
   },
   {

@@ -25,9 +25,6 @@ describe('subscription schema', () => {
     } = subscriptionSchema;
     expect(paymentDate).toBeDefined();
     expect(paymentDate.type.name).toBe('Date');
-    expect(paymentDate.required).toBe(
-      'La fecha de pago de la suscripción es requerida'
-    );
   });
 
   it('should implement expirationDate correctly', async () => {
@@ -36,8 +33,5 @@ describe('subscription schema', () => {
     } = subscriptionSchema;
     expect(expirationDate).toBeDefined();
     expect(expirationDate.type.name).toBe('Date');
-    expect(expirationDate.required).toBe(
-      'La fecha de expiración de la suscripción es requerida'
-    );
   });
 });

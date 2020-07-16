@@ -1,4 +1,6 @@
 import userSchema from '../../../../src/db/schemas/userSchemas/userSchema';
+import { FREE_ROLE } from '../../../../src/utils/userUtils/subscriptionUtils';
+import BusinessValidationError from '../../../../src/complements/exceptions/BusinessValidationError';
 
 describe('user schema', () => {
   it('should implement email correctly', async () => {
@@ -120,5 +122,18 @@ describe('user schema', () => {
     expect(subscription.required).toBe(
       'Se debe especificar la suscripción del usuario'
     );
+    expect(subscription.default).toStrictEqual({
+      role: FREE_ROLE,
+    });
+  });
+
+  it('should throw exception with invalid country', async () => {
+    const {
+      obj: { country },
+    } = userSchema;
+    expect(country.validate).toBeDefined();
+    expect(() => {
+      country.validate('QWER');
+    }).toThrow('El país es inválido');
   });
 });
