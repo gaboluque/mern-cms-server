@@ -1,4 +1,4 @@
-import userSchema from '../../../src/db/schemas/userSchemas/userSchema';
+import userSchema from '../../../../src/db/schemas/userSchemas/userSchema';
 
 describe('user schema', () => {
   it('should implement email correctly', async () => {

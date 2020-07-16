@@ -1,3 +1,3 @@
-export default async () => {
-  return 'hola';
+export default async (userDTO) => {
+  return userDTO;
 };

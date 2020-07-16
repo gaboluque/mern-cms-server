@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "dot-notation": 0,
+    "no-underscore-dangle": 0,
     "prettier/prettier": ["error", { "singleQuote": true }]
   },
 };
