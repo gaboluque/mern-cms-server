@@ -21,6 +21,9 @@ build/*
 # dist folder
 dist
 
+# COVERAGE
+coverage
+
 # logs
 .logs
 logs
