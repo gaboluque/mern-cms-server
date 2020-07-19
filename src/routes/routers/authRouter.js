@@ -1,15 +1,24 @@
 import express from 'express';
 import sanitization from '../middlewares/sanitization';
-import { authUserSignUpSanitizer } from '../sanitizers/authSanitizers';
-import { signUp } from '../controllers/authController';
+import {
+  authUserSignUpSanitizer,
+  authUserLogInSanitizer,
+} from '../sanitizers/authSanitizers';
+import { signUp, logIn } from '../controllers/authController';
 
 const authRouter = new express.Router();
-const authPath = 'auth';
+const authPath = '/auth';
 
 authRouter.post(
-  `${authPath}/users`,
+  `${authPath}/sign-up`,
   sanitization(authUserSignUpSanitizer),
   signUp
+);
+
+authRouter.post(
+  `${authPath}/log-in`,
+  sanitization(authUserLogInSanitizer),
+  logIn
 );
 
 export default authRouter;

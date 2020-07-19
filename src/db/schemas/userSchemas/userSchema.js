@@ -56,6 +56,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: 'La ciudad de residencia del usuario es requerida',
       trim: true,
+      minlength: [
+        2,
+        'La ciudad de residencia debe tener al menos 2 caracteres',
+      ],
+      maxlength: [
+        30,
+        'La ciudad de residencia puede tener máximo 30 caracteres',
+      ],
     },
     admin: {
       type: Boolean,

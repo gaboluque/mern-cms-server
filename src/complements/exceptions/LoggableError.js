@@ -1,5 +1,5 @@
-import SuperError from './SuperError';
 import logHandler from '../subscribers/logSubscriber';
+import SuperError from './SuperError';
 
 class LoggableError extends SuperError {
   constructor(message, error, place, data) {

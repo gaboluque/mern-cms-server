@@ -1,10 +1,12 @@
 import moment from 'moment';
+import jwt from 'jsonwebtoken';
 import encryptionGenerator from '../../business/services/utilServices/encryptionGenerator';
 
 function toJSON() {
   const user = this;
   const userObject = user.toObject();
-  userObject.birthDate = moment(user.birthDate).format('DD/MM/YYYY');
+  if (this.birthDate)
+    userObject.birthDate = moment(user.birthDate).format('DD/MM/YYYY');
   delete userObject.password;
   return userObject;
 }
@@ -12,6 +14,14 @@ function toJSON() {
 function fullName() {
   const user = this;
   return `${user.name} ${user.lastName}`;
+}
+
+async function createJWT() {
+  const user = this;
+  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    expiresIn: '60 days',
+  });
+  return token;
 }
 
 async function preSave(next) {
@@ -23,4 +33,4 @@ async function preSave(next) {
   next();
 }
 
-export { toJSON, preSave, fullName };
+export { toJSON, preSave, fullName, createJWT };
