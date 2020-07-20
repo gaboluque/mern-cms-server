@@ -1,3 +1,4 @@
+import jsonwebtoken from 'jsonwebtoken';
 import User from '../../../../src/db/models/userModel';
 
 const userDTO = {
@@ -36,5 +37,12 @@ describe('user methods', () => {
   it('fullName should provide full name', async () => {
     const fullName = user.fullName();
     expect(fullName).toBe(`${userDTO.name} ${userDTO.lastName}`);
+  });
+
+  it('createJWT should provide JWT token', async () => {
+    const token = await user.createJWT();
+    const { id } = jsonwebtoken.verify(token, process.env.JWT_SECRET);
+    expect(id).toBeDefined();
+    expect(token).toBeDefined();
   });
 });

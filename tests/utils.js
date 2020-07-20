@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import request from 'supertest';
+import app from '../src/app';
 import SuperError from '../src/complements/exceptions/SuperError';
 
 const dbConnect = async () => {
@@ -17,6 +19,8 @@ const dbConnect = async () => {
   );
 };
 
+const testApp = request(app);
+
 const removeAllCollections = async () => {
   const collections = Object.keys(mongoose.connection.collections);
   collections.forEach(async (collectionName) => {
@@ -29,4 +33,4 @@ const dbClose = async () => {
   await mongoose.connection.close();
 };
 
-export { dbConnect, dbClose, removeAllCollections };
+export { dbConnect, dbClose, removeAllCollections, testApp };

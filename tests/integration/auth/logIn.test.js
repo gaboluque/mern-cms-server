@@ -1,19 +1,21 @@
-import request from 'supertest';
-import app from '../../../src/app';
-import { dbClose, dbConnect, removeAllCollections } from '../../utils';
+import jsonwebtoken from 'jsonwebtoken';
+import userCreator from '../../../src/business/services/authServices/userCreator';
+import { FREE_ROLE } from '../../../src/utils/userUtils/subscriptionUtils';
+import { dbClose, dbConnect, removeAllCollections, testApp } from '../../utils';
 import {
   invalidLogIn,
   validLogIn,
   validUserDTO,
 } from '../../utils/userTestUtils';
-import userCreator from '../../../src/business/services/authServices/userCreator';
-import { FREE_ROLE } from '../../../src/utils/userUtils/subscriptionUtils';
 
 const route = '/auth/log-in';
 
 describe(route, () => {
   beforeAll(async () => {
     await dbConnect();
+  });
+
+  beforeEach(async () => {
     await userCreator(validUserDTO);
   });
 
@@ -26,13 +28,18 @@ describe(route, () => {
     done();
   });
 
-  it('should sign up user with valid input', async () => {
-    const res = await request(app).post(route).send(validLogIn);
+  it('should log in user with valid input', async () => {
+    const res = await testApp.post(route).send(validLogIn);
     expect(res.statusCode).toEqual(200);
     expect(res.body.success).toEqual(true);
     expect(res.body.info.message).toEqual('Bienvenid@!');
     expect(res.body.info.type).toEqual('success');
     expect(res.body.data.token).toBeDefined();
+    const { id } = jsonwebtoken.verify(
+      res.body.data.token,
+      process.env.JWT_SECRET
+    );
+    expect(id).toBeDefined();
     expect(res.body.data.env).toEqual(process.env.NODE_ENV);
     expect(res.body.data.subscription.role).toEqual(FREE_ROLE);
     expect(res.body.data.name).toEqual(validUserDTO.name);
@@ -40,7 +47,7 @@ describe(route, () => {
   });
 
   it('should fail on invalid input', async () => {
-    const res = await request(app).post(route).send(invalidLogIn);
+    const res = await testApp.post(route).send(invalidLogIn);
     expect(res.statusCode).toEqual(400);
     expect(res.body.success).toEqual(false);
     expect(res.body.info.message).toEqual(
@@ -53,7 +60,7 @@ describe(route, () => {
   });
 
   it('should fail on invalid password', async () => {
-    const res = await request(app)
+    const res = await testApp
       .post(route)
       .send({ ...validLogIn, password: '1234567890' });
     expect(res.statusCode).toEqual(400);

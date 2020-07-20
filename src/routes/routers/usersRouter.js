@@ -5,10 +5,11 @@ import sanitization from '../middlewares/sanitization';
 import { usersUpdateSanitizer } from '../sanitizers/usersSanitizers';
 
 const usersRouter = new express.Router();
-const authPath = '/users';
 
+// Me paths
+const mePath = '/me';
 usersRouter.put(
-  `${authPath}/basic-data`,
+  `${mePath}/basic-data`,
   authentication,
   sanitization(usersUpdateSanitizer),
   updateBasicData

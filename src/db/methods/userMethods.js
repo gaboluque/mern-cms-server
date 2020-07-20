@@ -6,7 +6,9 @@ function toJSON() {
   const user = this;
   const userObject = user.toObject();
   if (this.birthDate)
-    userObject.birthDate = moment(user.birthDate).format('DD/MM/YYYY');
+    userObject.birthDate = moment
+      .utc(user.birthDate, moment.ISO_8601)
+      .format('DD/MM/YYYY');
   delete userObject.password;
   return userObject;
 }

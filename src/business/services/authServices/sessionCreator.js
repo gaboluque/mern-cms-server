@@ -16,7 +16,7 @@ export default async ({ email, password }) => {
   const user = await userRepo.findUser(
     { email },
     {
-      _id: 0,
+      _id: 1,
       name: 1,
       lastName: 1,
       password: 1,

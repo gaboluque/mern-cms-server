@@ -1,6 +1,4 @@
-import request from 'supertest';
-import app from '../../../src/app';
-import { dbClose, dbConnect, removeAllCollections } from '../../utils';
+import { dbClose, dbConnect, removeAllCollections, testApp } from '../../utils';
 import { invalidUserDTO, validUserDTO } from '../../utils/userTestUtils';
 
 const route = '/auth/sign-up';
@@ -20,7 +18,7 @@ describe(route, () => {
   });
 
   it('should sign up user with valid input', async () => {
-    const res = await request(app).post(route).send(validUserDTO);
+    const res = await testApp.post(route).send(validUserDTO);
     expect(res.statusCode).toEqual(200);
     expect(res.body.success).toEqual(true);
     expect(res.body.info.message).toEqual(
@@ -30,7 +28,7 @@ describe(route, () => {
   });
 
   it('should fail on invalid input', async () => {
-    const res = await request(app).post(route).send(invalidUserDTO);
+    const res = await testApp.post(route).send(invalidUserDTO);
     expect(res.statusCode).toEqual(400);
     expect(res.body.success).toEqual(false);
     expect(res.body.info.message).toEqual(

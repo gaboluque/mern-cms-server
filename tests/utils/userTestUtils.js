@@ -28,4 +28,19 @@ const invalidLogIn = {
   password: '123',
 };
 
-export { validUserDTO, invalidUserDTO, validLogIn, invalidLogIn };
+const validUpdateUser = {
+  birthDate: '1994-03-05',
+  city: 'Medellín',
+  country: 'US',
+  email: 'newuser@gmail.com',
+  name: 'newName',
+  lastName: 'newLastName',
+};
+
+export {
+  validUserDTO,
+  invalidUserDTO,
+  validLogIn,
+  invalidLogIn,
+  validUpdateUser,
+};
