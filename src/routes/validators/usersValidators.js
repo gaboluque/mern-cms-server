@@ -1,6 +1,9 @@
 import { body } from 'express-validator';
+import { roleList } from '../../utils/userUtils/subscriptionUtils';
 
-const commonUpdateValidator = [
+const validSubscription = ({ role }) => roleList.includes(role);
+
+const commonOwnDataUpdateValidator = [
   body('email').optional().isEmail().withMessage('El email no es valido'),
   body('name')
     .optional()
@@ -24,5 +27,11 @@ const commonUpdateValidator = [
     .withMessage('La ciudad debe tener entre 2 y 30 caracteres'),
 ];
 
-// eslint-disable-next-line import/prefer-default-export
-export { commonUpdateValidator };
+const commonUserUpdateDataValidator = [
+  body('subscription')
+    .optional()
+    .custom(validSubscription)
+    .withMessage('La subscripción no es valida'),
+];
+
+export { commonOwnDataUpdateValidator, commonUserUpdateDataValidator };

@@ -1,10 +1,10 @@
 import moment from 'moment';
 import userCreator from '../../../../../src/business/services/authServices/userCreator';
-import basicDataUpdater from '../../../../../src/business/services/userServices/basicDataUpdater';
+import userUpdater from '../../../../../src/business/services/userServices/userUpdater';
 import { dbClose, dbConnect, removeAllCollections } from '../../../../utils';
 import { validUpdateUser, validUserDTO } from '../../../../utils/userTestUtils';
 
-describe('basicDataUpdater service', () => {
+describe('userUpdater service', () => {
   let baseUser;
 
   beforeAll(async () => {
@@ -22,7 +22,7 @@ describe('basicDataUpdater service', () => {
   });
 
   it('should return valid user object', async () => {
-    const user = await basicDataUpdater(validUpdateUser, baseUser._id);
+    const user = await userUpdater(validUpdateUser, baseUser._id);
     expect(user.birthDate).toEqual(
       moment(validUpdateUser.birthDate, moment.ISO_8601).format('DD/MM/YYYY')
     );

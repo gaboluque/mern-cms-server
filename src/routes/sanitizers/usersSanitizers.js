@@ -1,6 +1,13 @@
-import { commonUpdateValidator } from '../validators/usersValidators';
+import { paramIdValidator } from '../validators/commonValidators';
+import {
+  commonOwnDataUpdateValidator,
+  commonUserUpdateDataValidator,
+} from '../validators/usersValidators';
 
-const usersUpdateSanitizer = [...commonUpdateValidator];
+const usersUpdateOwnDataSanitizer = commonOwnDataUpdateValidator;
+const usersUpdateDataSanitizer = [
+  paramIdValidator('userId'),
+  ...commonUserUpdateDataValidator,
+];
 
-// eslint-disable-next-line import/prefer-default-export
-export { usersUpdateSanitizer };
+export { usersUpdateOwnDataSanitizer, usersUpdateDataSanitizer };

@@ -1,3 +1,5 @@
+import { BASIC_ROLE } from '../../src/utils/userUtils/subscriptionUtils';
+
 const validUserDTO = {
   email: 'johndoe@gmail.com',
   password: '1234567',
@@ -6,6 +8,17 @@ const validUserDTO = {
   birthDate: '1995-03-03',
   country: 'CO',
   city: 'Bogotá',
+};
+
+const validAdminDTO = {
+  email: 'admin@cms.com',
+  password: '1234567',
+  name: 'Admin',
+  lastName: 'CMS',
+  birthDate: '1995-03-03',
+  country: 'CO',
+  city: 'Bogotá',
+  admin: true,
 };
 
 const invalidUserDTO = {
@@ -37,10 +50,18 @@ const validUpdateUser = {
   lastName: 'newLastName',
 };
 
+const validUpdateData = {
+  subscription: {
+    role: BASIC_ROLE,
+  },
+};
+
 export {
   validUserDTO,
   invalidUserDTO,
   validLogIn,
   invalidLogIn,
   validUpdateUser,
+  validAdminDTO,
+  validUpdateData,
 };
