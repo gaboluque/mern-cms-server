@@ -30,6 +30,7 @@ export default (err, _req, res, _next) => {
   }
 
   if (err.name === 'MulterError') {
+    console.log(err);
     return errorResponse(
       res,
       `Subiste más archivos de los permitidos en el campo ${err.field}`

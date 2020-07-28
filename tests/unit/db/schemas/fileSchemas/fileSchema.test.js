@@ -26,8 +26,8 @@ describe('file schema', () => {
       'El nombre del archivo debe tener al menos 2 caracteres',
     ]);
     expect(name.maxlength).toStrictEqual([
-      30,
-      'El nombre del archivo puede tener máximo 30 caracteres',
+      45,
+      'El nombre del archivo puede tener máximo 45 caracteres',
     ]);
   });
 

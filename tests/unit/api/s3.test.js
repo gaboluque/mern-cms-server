@@ -1,5 +1,7 @@
-import moment from 'moment';
+import fs from 'fs';
+import path from 'path';
 import s3 from '../../../src/api/s3';
+import { timeStamp } from '../../utils/commonTestUtils';
 
 const testJson = {
   testData: {
@@ -10,13 +12,10 @@ const testJson = {
 };
 
 describe('s3 api', () => {
-  const jsonKey = `test/json_${moment().format('DDMMYYYY_hhmmss')}`;
+  const jsonKey = `test/json_${timeStamp()}`;
 
   it('should reject on file getObject', async () => {
-    const video = await s3.getObject(
-      'test/mp4_sample.mp4',
-      process.env.AWS_BUCKET
-    );
+    const video = await s3.getObject('test/mp4_sample.mp4');
     expect(video).toBe('Data is not json');
   });
 
@@ -38,5 +37,24 @@ describe('s3 api', () => {
   it('should retrieve json correctly', async () => {
     const data = await s3.getObject('test/json', process.env.AWS_BUCKET);
     expect(JSON.stringify(data)).toStrictEqual(JSON.stringify(testJson));
+  });
+
+  it('should upload file correctly', async () => {
+    const key = `test/image_${timeStamp()}`;
+    const file = fs.readFileSync(
+      path.resolve(__dirname, '../../utils/resources/1.jpg')
+    );
+    s3.upload(
+      {
+        Bucket: process.env.AWS_BUCKET,
+        ACL: 'public-read',
+        Key: key,
+        ContentType: 'image/jpg',
+        Body: file,
+      },
+      (_err, data) => {
+        expect(data.Location).toBe(`${process.env.AWS_BUCKET_URL}${key}`);
+      }
+    );
   });
 });

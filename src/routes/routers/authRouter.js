@@ -7,18 +7,9 @@ import {
 import { signUp, logIn } from '../controllers/authController';
 
 const authRouter = new express.Router();
-const authPath = '/auth';
 
-authRouter.post(
-  `${authPath}/sign-up`,
-  sanitization(authUserSignUpSanitizer),
-  signUp
-);
+authRouter.post(`/sign-up`, sanitization(authUserSignUpSanitizer), signUp);
 
-authRouter.post(
-  `${authPath}/log-in`,
-  sanitization(authUserLogInSanitizer),
-  logIn
-);
+authRouter.post(`/log-in`, sanitization(authUserLogInSanitizer), logIn);
 
 export default authRouter;

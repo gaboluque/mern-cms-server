@@ -1,14 +1,19 @@
 import moment from 'moment';
 import userCreator from '../../../../../src/business/services/authServices/userCreator';
 import userUpdater from '../../../../../src/business/services/userServices/userUpdater';
+import NotFoundError from '../../../../../src/complements/exceptions/NotFoundError';
 import { dbClose, dbConnect, removeAllCollections } from '../../../../utils';
 import { validUpdateUser, validUserDTO } from '../../../../utils/userTestUtils';
+import { mongoId } from '../../../../../src/utils/commonUtils';
 
 describe('userUpdater service', () => {
   let baseUser;
 
   beforeAll(async () => {
     await dbConnect();
+  });
+
+  beforeEach(async () => {
     baseUser = await userCreator(validUserDTO);
   });
 
@@ -31,5 +36,11 @@ describe('userUpdater service', () => {
     expect(user.email).toEqual(validUpdateUser.email);
     expect(user.name).toEqual(validUpdateUser.name);
     expect(user.lastName).toEqual(validUpdateUser.lastName);
+  });
+
+  it('should return valid user object', async () => {
+    await expect(userUpdater(validUpdateUser, mongoId())).rejects.toThrow(
+      NotFoundError
+    );
   });
 });

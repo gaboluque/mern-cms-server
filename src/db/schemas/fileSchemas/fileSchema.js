@@ -9,7 +9,7 @@ const fileSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       match: [
-        /^(https:\/\/s3.us-west-2.amazonaws.com\/).*(\/files\/).+/,
+        /^(https:\/\/[a-z-]*.s3.amazonaws.com\/files\/).+/,
         'La url del archivo es invalida',
       ],
     },
@@ -18,7 +18,7 @@ const fileSchema = new mongoose.Schema(
       required: 'El nombre del archivo es requerido',
       trim: true,
       minlength: [2, 'El nombre del archivo debe tener al menos 2 caracteres'],
-      maxlength: [30, 'El nombre del archivo puede tener máximo 30 caracteres'],
+      maxlength: [45, 'El nombre del archivo puede tener máximo 45 caracteres'],
     },
     kind: {
       type: String,

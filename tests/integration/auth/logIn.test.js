@@ -8,7 +8,7 @@ import {
   validUserDTO,
 } from '../../utils/userTestUtils';
 
-const route = '/auth/log-in';
+const route = '/log-in';
 
 describe(route, () => {
   beforeAll(async () => {

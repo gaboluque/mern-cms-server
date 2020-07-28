@@ -1,4 +1,5 @@
 import BusinessValidationError from '../../complements/exceptions/BusinessValidationError';
+import NotFoundError from '../../complements/exceptions/NotFoundError';
 import User from '../models/userModel';
 
 const findUser = async (filter, projection = {}, options = {}) => {
@@ -13,7 +14,7 @@ const updateUser = async (filter, update = {}, options = {}) => {
     useFindAndModify: false,
     ...options,
   });
-  if (!user) throw new BusinessValidationError('Usuario no encontrado');
+  if (!user) throw new NotFoundError('Usuario no encontrado');
   return user;
 };
 

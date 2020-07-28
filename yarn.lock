@@ -995,6 +995,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@tokenizer/token@^0.1.0", "@tokenizer/token@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.1.1.tgz#f0d92c12f87079ddfd1b29f614758b9696bc29e3"
+  integrity sha512-XO6INPbZCxdprl+9qa/AAbFFOMzzwqYxpjPgLICrMD6C2FCw6qfJOPcBk6JqqPLSaZ/Qx87qn4rpPmPMwaAK6w==
+
 "@types/babel__core@^7.1.0":
   version "7.1.9"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.9.tgz#77e59d438522a6fb898fa43dc3455c6e72f3963d"
@@ -1032,6 +1037,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+
+"@types/debug@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
+  integrity sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.3"
@@ -2659,6 +2669,16 @@ file-entry-cache@^5.0.1:
   dependencies:
     flat-cache "^2.0.1"
 
+file-type@^14.6.2:
+  version "14.6.2"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-14.6.2.tgz#5bf69c0d8c39de525d3d9de23d81a3b6e81cf69a"
+  integrity sha512-kSZTAJxPXBdBgJyoC7TexkBWoMI/D1Gas6aTtAn9VIRFwCehwiluGV5O8O2GwqO5zIqeEvXxEKl/xfcaAKB0Yg==
+  dependencies:
+    readable-web-to-node-stream "^2.0.0"
+    strtok3 "^6.0.3"
+    token-types "^2.0.0"
+    typedarray-to-buffer "^3.1.5"
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -3072,7 +3092,7 @@ iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-ieee754@1.1.13, ieee754@^1.1.4:
+ieee754@1.1.13, ieee754@^1.1.13, ieee754@^1.1.4:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
   integrity sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==
@@ -3390,7 +3410,7 @@ is-symbol@^1.0.2:
   dependencies:
     has-symbols "^1.0.1"
 
-is-typedarray@~1.0.0:
+is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
@@ -4853,6 +4873,11 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
+peek-readable@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/peek-readable/-/peek-readable-3.1.0.tgz#250b08b7de09db8573d7fd8ea475215bbff14348"
+  integrity sha512-KGuODSTV6hcgdZvDrIDBUkN0utcAVj1LL7FfGbM0viKTtCHmtZcuEJ+lGqsp0fTFkGqesdtemV2yUSMeyy3ddA==
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -5126,6 +5151,11 @@ readable-stream@^3.4.0:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
+
+readable-web-to-node-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/readable-web-to-node-stream/-/readable-web-to-node-stream-2.0.0.tgz#751e632f466552ac0d5c440cc01470352f93c4b7"
+  integrity sha512-+oZJurc4hXpaaqsN68GoZGQAQIA3qr09Or4fqEsargABnbe5Aau8hFn6ISVleT3cpY/0n/8drn7huyyEvTbghA==
 
 readdirp@^2.2.1:
   version "2.2.1"
@@ -5842,6 +5872,16 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
+strtok3@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-6.0.3.tgz#bc81e225c19a909eab86538ff3348c4b3b0553d3"
+  integrity sha512-/3RaYN9rW5WEYNHSvn081CgL4HziT027hfi5tsksbPfeWxi3BSLb8tolZDzpYU3I78/0ZqRiFpMDAqN2t4YShA==
+  dependencies:
+    "@tokenizer/token" "^0.1.1"
+    "@types/debug" "^4.1.5"
+    debug "^4.1.1"
+    peek-readable "^3.1.0"
+
 superagent@^3.8.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.3.tgz#460ea0dbdb7d5b11bc4f78deba565f86a178e128"
@@ -5991,6 +6031,14 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
+token-types@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/token-types/-/token-types-2.0.0.tgz#b23618af744818299c6fbf125e0fdad98bab7e85"
+  integrity sha512-WWvu8sGK8/ZmGusekZJJ5NM6rRVTTDO7/bahz4NGiSDb/XsmdYBn6a1N/bymUHuWYTWeuLUg98wUzvE4jPdCZw==
+  dependencies:
+    "@tokenizer/token" "^0.1.0"
+    ieee754 "^1.1.13"
+
 touch@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/touch/-/touch-3.1.0.tgz#fe365f5f75ec9ed4e56825e0bb76d24ab74af83b"
@@ -6074,6 +6122,13 @@ type-is@^1.6.4, type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+typedarray-to-buffer@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"
+  integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
+  dependencies:
+    is-typedarray "^1.0.0"
 
 typedarray@^0.0.6:
   version "0.0.6"

@@ -8,7 +8,7 @@ import {
   validUserDTO,
 } from '../../utils/userTestUtils';
 
-const route = '/me/basic-data';
+const route = '/users/me/basic-data';
 
 describe(route, () => {
   let token;

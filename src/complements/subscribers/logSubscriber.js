@@ -1,6 +1,6 @@
 import events from 'events';
 import winston from 'winston';
-import moment from 'moment';
+import { timeStamp } from '../../utils/commonUtils';
 
 const logHandler = new events.EventEmitter();
 
@@ -35,21 +35,21 @@ if (!['production', 'test'].includes(process.env.NODE_ENV)) {
 logHandler.on('error', (message) => {
   logger.log({
     level: 'error',
-    message: `[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${message}`,
+    message: `[${timeStamp()}] ${message}`,
   });
 });
 
 logHandler.on('warning', (message) => {
   logger.log({
     level: 'warn',
-    message: `[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${message}`,
+    message: `[${timeStamp()}] ${message}`,
   });
 });
 
 logHandler.on('info', (message) => {
   logger.log({
     level: 'info',
-    message: `[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${message}`,
+    message: `[${timeStamp()}] ${message}`,
   });
 });
 

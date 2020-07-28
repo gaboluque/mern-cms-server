@@ -1,6 +1,6 @@
 import usersRouter from '../../../../src/routes/routers/usersRouter';
 
-const paths = ['/me/basic-data', '/users/:userId'];
+const paths = ['/me/basic-data', '/:userId'];
 
 describe('auth router', () => {
   it('should implement paths correctly', async () => {

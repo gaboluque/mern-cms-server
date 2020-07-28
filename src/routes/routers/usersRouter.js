@@ -24,10 +24,8 @@ usersRouter.put(
 );
 
 // Users paths
-const usersPath = '/users';
-
 usersRouter.put(
-  `${usersPath}/:userId`,
+  `/:userId`,
   authorization('admin'),
   sanitization(usersUpdateDataSanitizer),
   updateUserData

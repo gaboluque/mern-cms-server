@@ -1,7 +1,7 @@
 import { dbClose, dbConnect, removeAllCollections, testApp } from '../../utils';
 import { invalidUserDTO, validUserDTO } from '../../utils/userTestUtils';
 
-const route = '/auth/sign-up';
+const route = '/sign-up';
 
 describe(route, () => {
   beforeAll(async () => {
