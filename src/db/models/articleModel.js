@@ -6,6 +6,6 @@ import articleSchema from '../schemas/articleSchemas/articleSchema';
 articleSchema.plugin(mongoosePaginate);
 articleSchema.plugin(aggregatePaginate);
 
-const User = mongoose.model('Article', articleSchema);
+const Article = mongoose.model('Article', articleSchema);
 
-export default User;
+export default Article;

@@ -1,7 +1,12 @@
 import FileType from 'file-type';
+import BusinessValidationError from '../../complements/exceptions/BusinessValidationError';
 
 const fileTypeFromBuffer = async (buffer) => {
-  const { ext, mime } = await FileType.fromBuffer(buffer);
+  const data = await FileType.fromBuffer(buffer);
+  if (!data) {
+    throw new BusinessValidationError('Error al leer el archivo');
+  }
+  const { ext, mime } = data;
   const kind = mime.split('/')[0];
   return { ext, mime, kind };
 };

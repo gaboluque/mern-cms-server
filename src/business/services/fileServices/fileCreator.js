@@ -27,7 +27,7 @@ const updateFile = async (fileId, url) => {
 
 const createFile = async (fileDTO) => {
   const file = new File(fileDTO);
-  file.save();
+  await file.save();
   return file;
 };
 

@@ -1,13 +1,24 @@
-import fs from 'fs';
-import path from 'path';
 import fileCreator from '../../../../../src/business/services/fileServices/fileCreator';
 import { IMAGE_FILE } from '../../../../../src/utils/fileUtils/fileKindUtils';
+import { dbClose, dbConnect, removeAllCollections } from '../../../../utils';
+import { getTestFile } from '../../../../utils/fileTestUtils';
 
-describe('userUpdater service', () => {
+describe('fileCreator service', () => {
+  beforeAll(async () => {
+    await dbConnect();
+  });
+
+  beforeEach(async () => {
+    await removeAllCollections();
+  });
+
+  afterAll(async (done) => {
+    await dbClose();
+    done();
+  });
+
   it('should return true on correct create', async () => {
-    const testFile = fs.readFileSync(
-      path.resolve(__dirname, '../../../../utils/resources/1.jpg')
-    );
+    const testFile = getTestFile();
     const file = await fileCreator({ file: testFile });
     expect(file).toBeDefined();
     expect(file._id).toBeDefined();

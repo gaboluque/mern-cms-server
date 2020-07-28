@@ -12,7 +12,6 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: 'El título del artículo es requerido',
       trim: true,
-      lowercase: true,
       minlength: [2, 'El titulo del artículo debe tener al menos 2 caracteres'],
       maxlength: [
         30,
@@ -23,7 +22,6 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: 'La descripción del artículo es requerida',
       trim: true,
-      lowercase: true,
       minlength: [
         2,
         'La descripción del artículo debe tener al menos 2 caracteres',
