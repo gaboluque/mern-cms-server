@@ -3,6 +3,7 @@ import fileCreator from '../../../../../src/business/services/fileServices/fileC
 import { dbClose, dbConnect, removeAllCollections } from '../../../../utils';
 import { validArticleDTO } from '../../../../utils/articleTestUtils';
 import { getTestFile } from '../../../../utils/fileTestUtils';
+import { mongoId } from '../../../../../src/utils/commonUtils';
 
 describe('userUpdater service', () => {
   let file;
@@ -32,5 +33,12 @@ describe('userUpdater service', () => {
     expect(article.file).toBe(validDTO.file);
     expect(article.category).toBe(validDTO.category);
     expect(article.format).toBe(validDTO.format);
+  });
+
+  it('should throw exception on file not found', async () => {
+    const invalidDTO = validArticleDTO(mongoId());
+    await expect(articleCreator(invalidDTO)).rejects.toThrow(
+      'Archivo no encontrado'
+    );
   });
 });

@@ -1,6 +1,6 @@
 import {
-  HEALING_CATEGORY,
   FORMAT_1,
+  HEALING_CATEGORY,
 } from '../../src/utils/articleUtils/articleContextUtils';
 
 const validArticleDTO = (file) => ({
@@ -14,5 +14,14 @@ const validArticleDTO = (file) => ({
   format: FORMAT_1,
 });
 
+const invalidArticleDTO = {
+  title: 'T',
+  description: 'L',
+  content: 'L',
+  file: 'jh1234j12h4b',
+  category: 'badCat',
+  format: 'badFormat',
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { validArticleDTO };
+export { validArticleDTO, invalidArticleDTO };

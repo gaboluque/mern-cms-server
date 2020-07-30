@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import errorHandler from './routes/middlewares/errorHandler';
+import articlesRouter from './routes/routers/articlesRouter';
 import authRouter from './routes/routers/authRouter';
 import filesRouter from './routes/routers/filesRouter';
 import usersRouter from './routes/routers/usersRouter';
@@ -11,6 +12,7 @@ app.use(cors());
 app.use('', authRouter);
 app.use('/users', usersRouter);
 app.use('/files', filesRouter);
+app.use('/articles', articlesRouter);
 app.use(errorHandler);
 
 export default app;
