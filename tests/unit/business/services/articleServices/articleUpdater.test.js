@@ -10,7 +10,7 @@ import { validArticleDTO } from '../../../../utils/articleTestUtils';
 import { getTestFile } from '../../../../utils/fileTestUtils';
 import { mongoId } from '../../../../../src/utils/commonUtils';
 
-describe('userUpdater service', () => {
+describe('articleUpdater service', () => {
   let article;
 
   beforeAll(async () => {
@@ -58,7 +58,7 @@ describe('userUpdater service', () => {
         articleId: mongoId(),
         ...validDTO,
       })
-    ).rejects.toThrow('Articulo no encontrado');
+    ).rejects.toThrow('Artículo no encontrado');
   });
 
   it('should throw exception on file not found', async () => {

@@ -8,5 +8,11 @@ const updateArticleSanitizer = [
   ...createArticleValidator,
 ];
 
+const deleteArticleSanitizer = [paramIdValidator('articleId')];
+
 // eslint-disable-next-line import/prefer-default-export
-export { createArticleSanitizer, updateArticleSanitizer };
+export {
+  createArticleSanitizer,
+  updateArticleSanitizer,
+  deleteArticleSanitizer,
+};

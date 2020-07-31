@@ -5,7 +5,7 @@ import { validArticleDTO } from '../../../../utils/articleTestUtils';
 import { getTestFile } from '../../../../utils/fileTestUtils';
 import { mongoId } from '../../../../../src/utils/commonUtils';
 
-describe('userUpdater service', () => {
+describe('articleCreator service', () => {
   let file;
   beforeAll(async () => {
     await dbConnect();

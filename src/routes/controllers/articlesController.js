@@ -1,7 +1,8 @@
 import articleCreator from '../../business/services/articleServices/articleCreator';
+import articleDeleter from '../../business/services/articleServices/articleDeleter';
+import articleUpdater from '../../business/services/articleServices/articleUpdater';
 import exceptionWrapper from '../../complements/helpers/exceptionWrapper';
 import responseFormatter from '../../complements/helpers/templates/responseFormatter';
-import articleUpdater from '../../business/services/articleServices/articleUpdater';
 
 const createArticle = exceptionWrapper(async ({ permittedParams }, res) => {
   const article = await articleCreator(permittedParams);
@@ -17,5 +18,11 @@ const updateArticle = exceptionWrapper(async ({ permittedParams }, res) => {
     .send(responseFormatter(article, 'Articulo actualizado correctamente!'));
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { createArticle, updateArticle };
+const deleteArticle = exceptionWrapper(async ({ permittedParams }, res) => {
+  const article = await articleDeleter(permittedParams);
+  res
+    .status(200)
+    .send(responseFormatter(article, 'Articulo eliminado correctamente!'));
+});
+
+export { createArticle, updateArticle, deleteArticle };
