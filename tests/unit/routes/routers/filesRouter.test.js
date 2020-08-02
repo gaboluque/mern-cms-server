@@ -1,6 +1,6 @@
 import filesRouter from '../../../../src/routes/routers/filesRouter';
 
-const paths = ['/'];
+const paths = ['/', '/:fileId'];
 
 describe('auth router', () => {
   it('should implement paths correctly', async () => {

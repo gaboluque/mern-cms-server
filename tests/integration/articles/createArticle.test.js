@@ -42,7 +42,7 @@ describe(route, () => {
       .post(route)
       .set('Authorization', `Bearer ${token}`)
       .send(validArticleDTO(file._id));
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(201);
     expect(res.body.success).toEqual(true);
     expect(res.body.info.message).toEqual('Articulo creado correctamente!');
     expect(res.body.info.type).toEqual('success');

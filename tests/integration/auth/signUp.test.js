@@ -19,7 +19,7 @@ describe(route, () => {
 
   it('should sign up user with valid input', async () => {
     const res = await testApp.post(route).send(validUserDTO);
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(201);
     expect(res.body.success).toEqual(true);
     expect(res.body.info.message).toEqual(
       'Registro correcto! Por favor inicia sesión para continuar'

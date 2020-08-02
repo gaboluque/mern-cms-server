@@ -7,6 +7,16 @@ const findFile = async (filter, projection = {}, options = {}) => {
   return file;
 };
 
+const deleteFile = async (id, options = {}) => {
+  const file = await File.findByIdAndDelete(id, {
+    ...options,
+    useFindAndModify: false,
+  });
+  if (!file) throw new NotFoundError('Archivo no encontrado');
+  return file;
+};
+
 export default {
   findFile,
+  deleteFile,
 };

@@ -6,7 +6,7 @@ import responseFormatter from '../../complements/helpers/templates/responseForma
 const signUp = exceptionWrapper(async ({ permittedParams }, res) => {
   await userCreator(permittedParams);
   res
-    .status(200)
+    .status(201)
     .send(
       responseFormatter(
         null,

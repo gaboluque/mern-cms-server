@@ -37,7 +37,7 @@ describe(route, () => {
       .set('Authorization', `Bearer ${token}`)
       .set('Content-Type', `multipart/form-data`)
       .attach('file', testFile, { filename: '1.jpg' });
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(201);
     expect(res.body.success).toEqual(true);
     expect(res.body.info.message).toEqual('Archivo creado correctamente!');
     expect(res.body.info.type).toEqual('success');
