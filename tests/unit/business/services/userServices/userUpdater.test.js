@@ -38,7 +38,7 @@ describe('userUpdater service', () => {
     expect(user.lastName).toEqual(validUpdateUser.lastName);
   });
 
-  it('should return valid user object', async () => {
+  it('should throw wxception on no user found', async () => {
     await expect(userUpdater(validUpdateUser, mongoId())).rejects.toThrow(
       NotFoundError
     );

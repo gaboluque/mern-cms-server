@@ -44,6 +44,7 @@ const invalidLogIn = {
 const validUpdateUser = {
   birthDate: '1994-03-05',
   city: 'Medellín',
+  password: '7654321',
   country: 'US',
   email: 'newuser@gmail.com',
   name: 'newName',
@@ -54,6 +55,7 @@ const validUpdateData = {
   subscription: {
     role: BASIC_ROLE,
   },
+  password: '7654321',
 };
 
 export {

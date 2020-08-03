@@ -32,6 +32,10 @@ const commonUserUpdateDataValidator = [
     .optional()
     .custom(validSubscription)
     .withMessage('La subscripción no es valida'),
+  body('password')
+    .optional()
+    .isLength({ min: 7 })
+    .withMessage('La contraseña debe tener al menos 7 caracteres'),
 ];
 
 export { commonOwnDataUpdateValidator, commonUserUpdateDataValidator };
